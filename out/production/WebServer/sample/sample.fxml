@@ -1,0 +1,14 @@
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.GridPane?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<GridPane fx:controller="sample.Controller"
+          xmlns:fx="http://javafx.com/fxml" alignment="center" hgap="10" vgap="10">
+    <TextField fx:id="iptext" GridPane.rowIndex="0"/>
+    <TextField fx:id="porttext" GridPane.rowIndex="1"/>
+    <TextField fx:id="hometext" GridPane.rowIndex="2"/>
+    <Button GridPane.rowIndex="3" onAction="#setOk" text="确认"/>
+    <Label GridPane.rowIndex="4" fx:id="info"/>
+</GridPane>
