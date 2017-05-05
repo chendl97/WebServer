@@ -1,0 +1,1445 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0058)http://docs.oracle.com/javafx/2/ui_controls/table-view.htm -->
+<html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+
+  <title>Using JavaFX UI Controls: Table View | JavaFX 2 Tutorials and Documentation</title> 
+
+<!-- Add DARB meta tags here -->
+
+<!-- Start JavaFX meta tags -->
+<meta name="generator" content="Oracle DARB XHTML Converter (Mode = document) - Version 1.0.17">
+<meta name="date" content="2013-08-27T0:35:24Z">
+<meta name="description" content="In this chapter, you learn how to perform basic operations with tables in JavaFX applications, such as adding a table, populating the table with data, and editing table rows.">
+<meta name="robots" content="noarchive">
+<meta name="doctitle" content="Table View">
+<meta name="relnum" content="Release 2.2">
+<meta name="partnum" content="E20485-11">
+<meta name="description" content="Learn how to use JavaFX 2 UI controls such as buttons, labels, radio buttons, checkboxes, choice boxes, text boxes, password boxes, scrollbars, scroll panes, list views, sliders, progress bars and indicators, tooltips, hyperlinks, and table views to develop rich internet applications, how to add visual effects, apply css, and how to lay out components on the application&#39;s scene.">
+<meta name="keywords" content="JavaFX 2, JavaFX UI controls, UI controls in JavaFX, JavaFX 2 UI controls, JavaFX controls, controls in JavaFX, JavaFX UI components, JavaFX 2 UI components, add UI controls to JavaFX applications, JavaFX buttons labels text fields radio buttons menus dialogs checkboxes panes sliders scrollbars tables progress bar tooltip scroll view tab view, JavaFX  buttons, JavaFX menus, JavaFX labels, JavaFX dialogs, JavaFX checkboxes. JavaFX panes, JavaFX panels, JavaFX sliders, JavaFX scrollbars, JavaFX tooltip, JavaFX scroll view, JavaFX tab view, JavaFX GUI elements, JavaFX GUI components, JavaFX GUI controls, JavaFX 2 GUI controls">
+
+<!-- Persistent copyright link from DARB output -->
+<link rel="copyright" href="http://docs.oracle.com/javafx/dcommon/html/cpyr.htm" title="Copyright" type="text/html">
+
+<!-- Links to JavaFX output template style sheets -->
+<link href="./index_files/javafx-darb-position.css" rel="stylesheet" type="text/css">
+<link href="./index_files/javafx-darb-fonts.css" rel="stylesheet" type="text/css">
+
+
+<!-- START Prev and next buttons  -->
+
+<!-- END prev/next link tags -->
+
+
+<!-- Markup to fix IE CSS display problems -->
+<!--[if IE 5]>
+<style type="text/css"> 
+/* place css box model fixes for IE 5* in this conditional comment */
+.javafx #sidebar1 { width: 220px; }
+</style>
+<![endif]-->
+<!--[if IE]>
+<style type="text/css"> 
+/* place css fixes for all versions of IE in this conditional comment */
+.javafx #sidebar1 { padding-top: 30px; }
+.javafx #mainContent li p{ margin:0; padding-bottom: 0px; }
+.javafx #mainContent { zoom: 1; }
+.javafx #mainContent {
+	margin: 0px 290px 0px 0px; /* the right margin on this div element creates the column down the right side of the page - no matter how much content the sidebar1 div contains, the column space will remain. You can remove this margin if you want the #mainContent div's text to fill the #sidebar1 space when the content in #sidebar1 ends. */
+	padding: 10px; /* remember that padding is the space inside the div box and margin is the space outside the div box */
+	width:600px;/*should be 615 but ie6 doesn't work;*/
+	border-right-style:none;
+	border-right-color:#C7C7C7;
+	border-right-width:0px;
+	background-image:url(../../javafx/images/fx_boxback.jpg);
+	background-repeat:no-repeat;
+	z-index:0;
+} 
+/* the above proprietary zoom property gives IE the hasLayout it needs to avoid several bugs */
+</style>
+<![endif]-->
+
+<!-- Visibility toggle script -->
+<script type="text/javascript">
+<!--
+    function toggle_visibility(id) {
+       var e = document.getElementById(id);
+       if(e.style.display == 'block')
+          e.style.display = 'none';
+       else
+          e.style.display = 'block';
+    }
+//-->
+</script>
+
+</head>
+
+<body class="javafx">
+<!-- The following markup is required for accessibility -->
+<noscript>
+JavaScript is not supported by your browser.  JavaScript support is required for full functionality of this page.
+</noscript> 
+
+
+<!-- ///////// Container ///////// -->
+  <div id="container">
+
+<!--///////// Header /////////-->
+  <div id="header">
+  	<div id="headerfxtrail" class="breadcrumb"><a href="http://docs.oracle.com/javafx/index.html">JavaFX Documentation Home</a> &gt; <a href="http://docs.oracle.com/javafx/2/ui_controls/jfxpub-ui_controls.htm">Using JavaFX UI Controls</a>
+  </div>
+  <!-- end #header --></div>
+<!--///////// End Header /////////-->
+  
+  
+<!--///////// Start Side Bar /////////-->  
+  <div id="sidebar">
+   
+  <!-- Sidebar item 1. This <div> is obligatory --> 
+  <div id="sidebar_version_box" class="FX_type_med_gry">
+     <h1>Release: JavaFX 2.2</h1>
+     <p>Last Updated: September 2013</p>
+   <p><a href="http://docs.oracle.com/javafx/2/ui_controls/jfxpub-ui_controls.pdf">Download as PDF</a></p>  
+  <!-- end obligatory sidebar_version_box --></div>
+  
+  <!-- Sidebar item 2 Table of Contents. This <div> is optional --> 
+  <div id="sidebar_toc_box" class="FX_type_med_gry">
+     <h2 class="boxtitle"><a href="http://docs.oracle.com/javafx/2/ui_controls/table-view.htm#" onclick="toggle_visibility(&#39;toc&#39;);">[+] Show/Hide Table of Contents</a></h2>
+  <div id="toc" style="display:none;">
+
+   <h2 class="tocheader"><a href="http://docs.oracle.com/javafx/2/ui_controls/jfxpub-ui_controls.htm#sthref2">About This Tutorial</a></h2>
+<h2 class="tocheader"><a href="http://docs.oracle.com/javafx/2/ui_controls/overview.htm#BABJACHC"><span class="secnum">1</span> JavaFX UI Controls</a></h2>
+<h2 class="tocheader"><a href="http://docs.oracle.com/javafx/2/ui_controls/label.htm#CIHHFIBJ"><span class="secnum">2</span> Label</a></h2>
+<h2 class="tocheader"><a href="http://docs.oracle.com/javafx/2/ui_controls/button.htm#CJHEEACB"><span class="secnum">3</span> Button</a></h2>
+<h2 class="tocheader"><a href="http://docs.oracle.com/javafx/2/ui_controls/radio-button.htm#BABBJBDA"><span class="secnum">4</span> Radio Button</a></h2>
+<h2 class="tocheader"><a href="http://docs.oracle.com/javafx/2/ui_controls/toggle-button.htm#CACJDICF"><span class="secnum">5</span> Toggle Button</a></h2>
+<h2 class="tocheader"><a href="http://docs.oracle.com/javafx/2/ui_controls/checkbox.htm#CHDFEJCD"><span class="secnum">6</span> Checkbox</a></h2>
+<h2 class="tocheader"><a href="http://docs.oracle.com/javafx/2/ui_controls/choice-box.htm#BCEDJAEH"><span class="secnum">7</span> Choice Box</a></h2>
+<h2 class="tocheader"><a href="http://docs.oracle.com/javafx/2/ui_controls/text-field.htm#BABBCEIG"><span class="secnum">8</span> Text Field</a></h2>
+<h2 class="tocheader"><a href="http://docs.oracle.com/javafx/2/ui_controls/scrollbar.htm#BGBEGJDE"><span class="secnum">9</span> Scroll Bar</a></h2>
+<h2 class="tocheader"><a href="http://docs.oracle.com/javafx/2/ui_controls/scrollpane.htm#CBBFFBCH"><span class="secnum">10</span> Scroll Pane</a></h2>
+<h2 class="tocheader"><a href="http://docs.oracle.com/javafx/2/ui_controls/list-view.htm#CEGGEDBF"><span class="secnum">11</span> List View</a></h2>
+<h2 class="tocheader"><a href="http://docs.oracle.com/javafx/2/ui_controls/table-view.htm#CJABIEED"><span class="secnum">12</span> Table View</a></h2>
+<h2 class="tocheader"><a href="http://docs.oracle.com/javafx/2/ui_controls/tree-view.htm#BABDEADA"><span class="secnum">13</span> Tree View</a></h2>
+<h2 class="tocheader"><a href="http://docs.oracle.com/javafx/2/ui_controls/combo-box.htm#BABEFEJC"><span class="secnum">14</span> Combo Box</a></h2>
+<h2 class="tocheader"><a href="http://docs.oracle.com/javafx/2/ui_controls/separator.htm#BGBCFDFI"><span class="secnum">15</span> Separator</a></h2>
+<h2 class="tocheader"><a href="http://docs.oracle.com/javafx/2/ui_controls/slider.htm#CCHFBJCH"><span class="secnum">16</span> Slider</a></h2>
+<h2 class="tocheader"><a href="http://docs.oracle.com/javafx/2/ui_controls/progress.htm#CHDDJAJE"><span class="secnum">17</span> Progress Bar and Progress Indicator</a></h2>
+<h2 class="tocheader"><a href="http://docs.oracle.com/javafx/2/ui_controls/hyperlink.htm#CIHGADBG"><span class="secnum">18</span> Hyperlink</a></h2>
+<h2 class="tocheader"><a href="http://docs.oracle.com/javafx/2/ui_controls/editor.htm#CHDBEGDD"><span class="secnum">19</span> HTML Editor</a></h2>
+<h2 class="tocheader"><a href="http://docs.oracle.com/javafx/2/ui_controls/tooltip.htm#BABBIJBJ"><span class="secnum">20</span> Tooltip</a></h2>
+<h2 class="tocheader"><a href="http://docs.oracle.com/javafx/2/ui_controls/accordion-titledpane.htm#CACGBAHI"><span class="secnum">21</span> Titled Pane and Accordion</a></h2>
+<h2 class="tocheader"><a href="http://docs.oracle.com/javafx/2/ui_controls/menu_controls.htm#BABGHADI"><span class="secnum">22</span> Menu</a></h2>
+<h2 class="tocheader"><a href="http://docs.oracle.com/javafx/2/ui_controls/password-field.htm#BABIDAGF"><span class="secnum">23</span> Password Field</a></h2>
+<h2 class="tocheader"><a href="http://docs.oracle.com/javafx/2/ui_controls/color-picker.htm#BABHFGHA"><span class="secnum">24</span> Color Picker</a></h2>
+<h2 class="tocheader"><a href="http://docs.oracle.com/javafx/2/ui_controls/pagination.htm#CACJCAGB"><span class="secnum">25</span> Pagination Control</a></h2>
+<h2 class="tocheader"><a href="http://docs.oracle.com/javafx/2/ui_controls/file-chooser.htm#CCHICECF"><span class="secnum">26</span> File Chooser</a></h2>
+<h2 class="tocheader"><a href="http://docs.oracle.com/javafx/2/ui_controls/custom.htm#CACCFEFD"><span class="secnum">27</span> Customization of UI Controls</a></h2> 
+
+  <!-- End toggle box --></div>
+  <!-- End item 2 TOC box --></div> 
+  
+  <!-- Sidebar item 3 DemoApp box. This <div> is optional --> 
+   <div id="sidebar_demoapp_box" class="FX_type_med_gry">
+  <h2 class="boxtitle"><a href="http://docs.oracle.com/javafx/2/ui_controls/table-view.htm#" onclick="toggle_visibility(&#39;app_resources&#39;);" class="boxtitle">[+] Show/Hide Application Files</a></h2>    
+  <div id="app_resources" style="display:none;">
+    <h3>View Source Code</h3>
+    <ul>
+        <li><a href="http://docs.oracle.com/javafx/2/ui_controls/ButtonSample.java.html">ButtonSample.java</a></li>
+        <li><a href="http://docs.oracle.com/javafx/2/ui_controls/CheckboxSample.java.html">CheckboxSample.java</a></li>
+        <li><a href="http://docs.oracle.com/javafx/2/ui_controls/ChoiceBoxSample.java.html">ChoiceBoxSample.java</a></li>
+        <li><a href="http://docs.oracle.com/javafx/2/ui_controls/ComboBoxSample.java.html">ComboBoxSample.java</a></li>
+        <li><a href="http://docs.oracle.com/javafx/2/ui_controls/FileChooserSample.java.html">FileChooserSample.java</a></li>
+        <li><a href="http://docs.oracle.com/javafx/2/ui_controls/HTMLEditorSample.java.html">HTMLEditorSample.java</a></li>
+        <li><a href="http://docs.oracle.com/javafx/2/ui_controls/HyperlinkSample.java.html">HyperlinkSample.java</a></li>
+        <li><a href="http://docs.oracle.com/javafx/2/ui_controls/HyperlinkWebViewSample.java.html">HyperlinkWebViewSample.java</a></li>
+        <li><a href="http://docs.oracle.com/javafx/2/ui_controls/LabelSample.java.html">LabelSample.java</a></li>
+        <li><a href="http://docs.oracle.com/javafx/2/ui_controls/ListViewSample.java.html">ListViewSample.java</a></li>
+        <li><a href="http://docs.oracle.com/javafx/2/ui_controls/MenuSample.java.html">MenuSample.java</a></li>
+        <li><a href="http://docs.oracle.com/javafx/2/ui_controls/PasswordFieldSample.java.html">PasswordFieldSample.java</a></li>
+        <li><a href="http://docs.oracle.com/javafx/2/ui_controls/ProgressSample.java.html">ProgressSample.java</a></li>
+        <li><a href="http://docs.oracle.com/javafx/2/ui_controls/RadioButtonSample.java.html">RadioButtonSample.java</a></li>
+        <li><a href="http://docs.oracle.com/javafx/2/ui_controls/ScrollBarSample.java.html">ScrollBarSample.java</a></li>
+        <li><a href="http://docs.oracle.com/javafx/2/ui_controls/ScrollPaneSample.java.html">ScrollPaneSample.java</a></li>
+        <li><a href="http://docs.oracle.com/javafx/2/ui_controls/SeparatorSample.java.html">SeparatorSample.java</a></li>
+        <li><a href="http://docs.oracle.com/javafx/2/ui_controls/SliderSample.java.html">SliderSample.java</a></li>
+        <li><a href="http://docs.oracle.com/javafx/2/ui_controls/TableViewSample.java.html">TableViewSample.java</a></li>
+        <li><a href="http://docs.oracle.com/javafx/2/ui_controls/TextFieldSample.java.html">TextFieldSample.java</a></li>
+        <li><a href="http://docs.oracle.com/javafx/2/ui_controls/TitledPaneSample.java.html">TitledPaneSample.java</a></li>
+        <li><a href="http://docs.oracle.com/javafx/2/ui_controls/ToggleButtonSample.java.html">ToggleButtonSample.java</a></li>
+        <li><a href="http://docs.oracle.com/javafx/2/ui_controls/TooltipSample.java.html">TooltipSample.java</a></li>
+        <li><a href="http://docs.oracle.com/javafx/2/ui_controls/TreeViewSample.java.html">TreeViewSample.java</a></li>
+        <li><a href="http://docs.oracle.com/javafx/2/ui_controls/ColorPickerSample.java.html">ColorPickerSample.java</a></li>
+        <li><a href="http://docs.oracle.com/javafx/2/ui_controls/PaginationSample.java.html">PaginationSample.java</a></li>
+    </ul>
+    <h3>Download Source Code</h3>
+    <ul>
+        <li><a href="http://docs.oracle.com/javafx/2/ui_controls/UIControlSamples.zip">UIControlSamples.zip</a></li>
+    </ul>
+   </div>
+</div>  
+  <!-- End item 3 DemoApp box -->
+  
+  <!-- Sidebar item 4 Profile box. This <div> is optional --> 
+   <div id="sidebar_profile_box" class="FX_type_med_gry">
+    <h2 class="boxtitle">Profiles</h2>
+    <div class="profile">
+    <h3>Alla Redko</h3>
+     <p><em>Technical Writer, Oracle</em> </p>
+     <p><img src="./index_files/alla_redko_sm.jpg" alt="The picture of the author">Alla is a technical writer for Oracle. She lives in St. Petersburg, Russia, and develops tutorials and technical articles for Java and JavaFX technologies. Prior to her assignment at Oracle, she worked as a technical writer in different IT companies. </p>
+    </div>
+</div>  
+  <!-- end Box 4 Profile -->  
+  
+  <!-- Sidebar item 5 Feedback box. This <div> is optional -->
+  <div id="sidebar_feedback_box" class="FX_type_med_gry">
+
+<h2 class="boxtitle">We Welcome Your Comments</h2>
+
+<p>Send us <a href="mailto:jfx-docs-feedback_ww@oracle.com?subject=Feedback:%20Using%20JavaFX%20UI%20Controls:%20Table%20View">feedback about this document.</a></p>
+
+<p>If you have questions about JavaFX, please go to the <a href="http://forums.oracle.com/forums/forum.jspa?forumID=1385">forum.</a></p>
+
+</div>
+
+
+  <!-- end Box 5 Profile -->
+
+  <!-- Sidebar item 5 Feedback box. This <div> is optional -->
+  <!-- [REPLACE_SINGLEP_FEEDBACK] -->
+  <!-- end Box 5 Profile -->
+  
+  <!-- end #sidebar --></div>
+  
+  <!--///////// End Side Bar /////////-->
+  
+  
+<!--///////// Main Content /////////-->
+  <div id="mainContent">
+  
+  <!-- Book Info div is used only for multipage documents -->
+  <div id="bookTitle">
+      <h1>Using JavaFX UI Controls </h1>
+  </div> 
+  <!-- End BookInfo div tag -->
+
+  <!-- START NEXT_PREVIOUS BUTTONS -->
+  <div class="pagestepper">
+<table class="simple oac_no_warn" summary="" cellpadding="0" cellspacing="0" width="100%">
+<tbody>
+<tr>
+<td><div align="left"><a href="http://docs.oracle.com/javafx/2/ui_controls/list-view.htm"><img src="./index_files/javafx-previouspage.gif" alt="Previous" border="0"></a></div></td>
+<td><div align="right"><a href="http://docs.oracle.com/javafx/2/ui_controls/tree-view.htm"><img src="./index_files/javafx-nextpage.gif" alt="Next" border="0"></a></div></td>
+</tr>
+</tbody></table>
+</div>
+  <!-- END NEXT_PREVIOUS BUTTONS -->
+   
+  
+  <div id="ind"> 
+
+<!-- /////////////// Start content copied from DARB output ////////////// -->
+
+	<a id="CJAGAAEE" name="CJAGAAEE"></a><a id="JFXUC262" name="JFXUC262"></a><a id="CJABIEED" name="CJABIEED"></a>
+<h1 class="chapter"><span class="secnum">12</span> Table View</h1>
+<a id="JFXUC531" name="JFXUC531"></a>
+<p>In this chapter, you learn how to perform basic operations with tables in JavaFX applications, such as adding a table, populating the table with data, and editing table rows.</p>
+<p>Several classes in the JavaFX SDK API are designed to represent data in a tabular form. The most important classes for creating tables in JavaFX applications are <code>TableView</code>, <code>TableColumn</code>, and <code>TableCell</code>. You can populate a table by implementing the data model and by applying a cell factory.</p>
+<p>The table classes provide built-in capabilities to sort data in columns and to resize columns when necessary.</p>
+<p><a href="http://docs.oracle.com/javafx/2/ui_controls/table-view.htm#CJADHEAG">Figure 12-1</a> shows a typical table representing contact information from an address book.</p>
+<div class="figure"><a id="CJADHEAG" name="CJADHEAG"></a><a id="JFXUC263" name="JFXUC263"></a>
+<p class="titleinfigure">Figure 12-1 Table Sample</p>
+<img src="./index_files/table-sample.png" alt="Address Book" title="Address Book" longdesc="img_text/table-sample.htm"><br>
+<a id="sthref103" name="sthref103" href="http://docs.oracle.com/javafx/2/ui_controls/img_text/table-sample.htm">Description of "Figure 12-1 Table Sample"</a><br>
+<br></div>
+<!-- class="figure" -->
+<a id="JFXUC264" name="JFXUC264"></a>
+<div class="sect1"><!-- infolevel="all" infotype="General" --><a id="sthref104" name="sthref104"></a>
+<h2 class="sect1">Creating a Table</h2>
+<p>The code fragment in <a href="http://docs.oracle.com/javafx/2/ui_controls/table-view.htm#CJAFBAHI">Example 12-1</a> creates an empty table with three columns and adds it to the application scene.</p>
+<div class="example"><a id="CJAFBAHI" name="CJAFBAHI"></a><a id="JFXUC265" name="JFXUC265"></a>
+<p class="titleinexample">Example 12-1 Adding a Table</p>
+<pre xml:space="preserve" class="oac_no_warn">import javafx.application.Application;
+import javafx.geometry.Insets;
+import javafx.scene.Group;
+import javafx.scene.Scene;
+import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.layout.VBox;
+import javafx.scene.text.Font;
+import javafx.stage.Stage;
+ 
+public class TableViewSample extends Application {
+ 
+    private TableView table = new TableView();
+    public static void main(String[] args) {
+        launch(args);
+    }
+ 
+    @Override
+    public void start(Stage stage) {
+        Scene scene = new Scene(new Group());
+        stage.setTitle("Table View Sample");
+        stage.setWidth(300);
+        stage.setHeight(500);
+ 
+        final Label label = new Label("Address Book");
+        label.setFont(new Font("Arial", 20));
+ 
+        table.setEditable(true);
+ 
+        TableColumn firstNameCol = new TableColumn("First Name");
+        TableColumn lastNameCol = new TableColumn("Last Name");
+        TableColumn emailCol = new TableColumn("Email");
+        
+        table.getColumns().addAll(firstNameCol, lastNameCol, emailCol);
+ 
+        final VBox vbox = new VBox();
+        vbox.setSpacing(5);
+        vbox.setPadding(new Insets(10, 0, 0, 10));
+        vbox.getChildren().addAll(label, table);
+ 
+        ((Group) scene.getRoot()).getChildren().addAll(vbox);
+ 
+        stage.setScene(scene);
+        stage.show();
+    }
+}
+</pre></div>
+<!-- class="example" -->
+<p>The table control is created by instantiating the <code>TableView</code> class. In <a href="http://docs.oracle.com/javafx/2/ui_controls/table-view.htm#CJAFBAHI">Example 12-1</a>, it is added to the <code>VBox</code> layout container, however, you can add it directly to the application scene.</p>
+<p><a href="http://docs.oracle.com/javafx/2/ui_controls/table-view.htm#CJAFBAHI">Example 12-1</a> defines three columns to store the following information in an address book: a contact's first name and last name, and an email address. The columns are created by using the <code>TableColumn</code> class.</p>
+<p>The <code>getColumns</code> method of the <code>TableView</code> class adds the previously created columns to the table. In your applications, you can use this method to dynamically add and remove columns.</p>
+<p>Compiling and running this application produces the output shown in <a href="http://docs.oracle.com/javafx/2/ui_controls/table-view.htm#CJAHCBHE">Figure 12-2</a>.</p>
+<div class="figure"><a id="CJAHCBHE" name="CJAHCBHE"></a><a id="JFXUC266" name="JFXUC266"></a>
+<p class="titleinfigure">Figure 12-2 Table Without Data</p>
+<img src="./index_files/table-empty.png" alt="An empty table" title="An empty table" longdesc="img_text/table-empty.htm"><br>
+<a id="sthref105" name="sthref105" href="http://docs.oracle.com/javafx/2/ui_controls/img_text/table-empty.htm">Description of "Figure 12-2 Table Without Data"</a><br>
+<br></div>
+<!-- class="figure" -->
+<p>You can manage visibility of the columns by calling the <code>setVisible</code> method. For example, if the logic of your application requires hiding user email addresses, you can implement this task as follows: <code>emailCol.setVisible(false)</code>.</p>
+<p>When the structure of your data requires a more complicated representation, you can create nested columns.</p>
+<p>For example, suppose that the contacts in the address book have two email accounts. Then you need two columns to show the primary and the secondary email addresses. Create two subcolumns, and call the <code>getColumns</code> method on <code>emailCol</code> as shown in <a href="http://docs.oracle.com/javafx/2/ui_controls/table-view.htm#CJABHBEH">Example 12-2</a>.</p>
+<div class="example"><a id="CJABHBEH" name="CJABHBEH"></a><a id="JFXUC337" name="JFXUC337"></a>
+<p class="titleinexample">Example 12-2 Creating Nested Columns</p>
+<pre xml:space="preserve" class="oac_no_warn">TableColumn firstEmailCol = new TableColumn("Primary");
+TableColumn secondEmailCol = new TableColumn("Secondary");
+
+emailCol.getColumns().addAll(firstEmailCol, secondEmailCol);
+</pre></div>
+<!-- class="example" -->
+<p>After you have added these lines to <a href="http://docs.oracle.com/javafx/2/ui_controls/table-view.htm#CJAFBAHI">Example 12-1</a>, and compiled and run the application code, the table appears as shown in <a href="http://docs.oracle.com/javafx/2/ui_controls/table-view.htm#CJAFIDEI">Figure 12-3</a>.</p>
+<div class="figure"><a id="CJAFIDEI" name="CJAFIDEI"></a><a id="JFXUC338" name="JFXUC338"></a>
+<p class="titleinfigure">Figure 12-3 Table with Nested Columns</p>
+<img src="./index_files/table-nested.png" alt="Table with nested columns" title="Table with nested columns" longdesc="img_text/table-nested.htm"><br>
+<a id="sthref106" name="sthref106" href="http://docs.oracle.com/javafx/2/ui_controls/img_text/table-nested.htm">Description of "Figure 12-3 Table with Nested Columns"</a><br>
+<br></div>
+<!-- class="figure" -->
+<p>Although the table is added to the application, the standard caption "No content in table" appears, because no data is defined. Instead of showing this caption, you can use the <code>setPlaceholder</code> method to specify a <code>Node</code> object to appear in an empty table.</p>
+</div>
+<!-- class="sect1" -->
+<a id="JFXUC267" name="JFXUC267"></a>
+<div class="sect1"><!-- infolevel="all" infotype="General" --><a id="sthref107" name="sthref107"></a>
+<h2 class="sect1">Defining the Data Model</h2>
+<p>When you create a table in a JavaFX application, it is a best practice to implement a class that defines the data model and provides methods and fields to further work with the table. <a href="http://docs.oracle.com/javafx/2/ui_controls/table-view.htm#CJADAHAH">Example 12-3</a> creates the <code>Person</code> class to define data in an address book.</p>
+<div class="example"><a id="CJADAHAH" name="CJADAHAH"></a><a id="JFXUC268" name="JFXUC268"></a>
+<p class="titleinexample">Example 12-3 Creating the Person Class</p>
+<pre xml:space="preserve" class="oac_no_warn">public static class Person {
+    private final SimpleStringProperty firstName;
+    private final SimpleStringProperty lastName;
+    private final SimpleStringProperty email;
+ 
+    private Person(String fName, String lName, String email) {
+        this.firstName = new SimpleStringProperty(fName);
+        this.lastName = new SimpleStringProperty(lName);
+        this.email = new SimpleStringProperty(email);
+    }
+ 
+    public String getFirstName() {
+        return firstName.get();
+    }
+    public void setFirstName(String fName) {
+        firstName.set(fName);
+    }
+        
+    public String getLastName() {
+        return lastName.get();
+    }
+    public void setLastName(String fName) {
+        lastName.set(fName);
+    }
+    
+    public String getEmail() {
+        return email.get();
+    }
+    public void setEmail(String fName) {
+        email.set(fName);
+    }
+        
+}
+</pre></div>
+<!-- class="example" -->
+<p>The <code>firstName</code>, <code>lastName</code>, and <code>email</code> string properties are created to enable the referencing of a particular data element.</p>
+<p>Additionally, the <code>get</code> and <code>set</code> methods are provided for each data element. Thus, for example, the <code>getFirstName</code> method returns the value of the <code>firstName</code> property, and the <code>setFirstName</code> method specifies a value for this property.</p>
+<p>When the data model is outlined in the <code>Person</code> class, you can create an <code>ObservableList</code> array and define as many data rows as you would like to show in your table. The code fragment in <a href="http://docs.oracle.com/javafx/2/ui_controls/table-view.htm#CJACAECH">Example 12-4</a> implements this task.</p>
+<div class="example"><a id="CJACAECH" name="CJACAECH"></a><a id="JFXUC269" name="JFXUC269"></a>
+<p class="titleinexample">Example 12-4 Defining Table Data in an Observable List</p>
+<pre xml:space="preserve" class="oac_no_warn">final ObservableList&lt;Person&gt; data = FXCollections.observableArrayList(
+    new Person("Jacob", "Smith", "jacob.smith@example.com"),
+    new Person("Isabella", "Johnson", "isabella.johnson@example.com"),
+    new Person("Ethan", "Williams", "ethan.williams@example.com"),
+    new Person("Emma", "Jones", "emma.jones@example.com"),
+    new Person("Michael", "Brown", "michael.brown@example.com")
+);
+</pre></div>
+<!-- class="example" -->
+<p>The next step is to associate the data with the table columns. You can do this through the properties defined for each data element, as shown in <a href="http://docs.oracle.com/javafx/2/ui_controls/table-view.htm#CJAGHGBD">Example 12-5</a>.</p>
+<div class="example"><a id="CJAGHGBD" name="CJAGHGBD"></a><a id="JFXUC270" name="JFXUC270"></a>
+<p class="titleinexample">Example 12-5 Setting Data Properties to Columns</p>
+<pre xml:space="preserve" class="oac_no_warn">firstNameCol.setCellValueFactory(
+    new PropertyValueFactory&lt;Person,String&gt;("firstName")
+);
+lastNameCol.setCellValueFactory(
+    new PropertyValueFactory&lt;Person,String&gt;("lastName")
+);
+emailCol.setCellValueFactory(
+    new PropertyValueFactory&lt;Person,String&gt;("email")
+);
+</pre></div>
+<!-- class="example" -->
+<p>The <code>setCellValueFactory</code> method specifies a cell factory for each column. The cell factories are implemented by using the <code>PropertyValueFactory</code> class, which uses the <code>firstName</code>, <code>lastName</code>, and <code>email</code> properties of the table columns as references to the corresponding methods of the <code>Person</code> class.</p>
+<p>When the data model is defined, and the data is added and associated with the columns, you can add the data to the table by using the <code>setItems</code> method of the <code>TableView</code> class: <code>table.setItems(data)</code>.</p>
+<p>Because the <code>ObservableList</code> object enables the tracking of any changes to its elements, the <code>TableView</code> content automatically updates whenever the data changes.</p>
+<p>Examine the application code shown in <a href="http://docs.oracle.com/javafx/2/ui_controls/table-view.htm#CJABHGAJ">Example 12-6</a>.</p>
+<div class="example"><a id="CJABHGAJ" name="CJABHGAJ"></a><a id="JFXUC271" name="JFXUC271"></a>
+<p class="titleinexample">Example 12-6 Creating a Table and Adding Data to It</p>
+<pre xml:space="preserve" class="oac_no_warn">import javafx.application.Application;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.geometry.Insets;
+import javafx.scene.Group;
+import javafx.scene.Scene;
+import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.VBox;
+import javafx.scene.text.Font;
+import javafx.stage.Stage;
+ 
+public class TableViewSample extends Application {
+ 
+    private TableView&lt;Person&gt; table = new TableView&lt;Person&gt;();
+    private final ObservableList&lt;Person&gt; data =
+        FXCollections.observableArrayList(
+            new Person("Jacob", "Smith", "jacob.smith@example.com"),
+            new Person("Isabella", "Johnson", "isabella.johnson@example.com"),
+            new Person("Ethan", "Williams", "ethan.williams@example.com"),
+            new Person("Emma", "Jones", "emma.jones@example.com"),
+            new Person("Michael", "Brown", "michael.brown@example.com")
+        );
+   
+    public static void main(String[] args) {
+        launch(args);
+    }
+ 
+    @Override
+    public void start(Stage stage) {
+        Scene scene = new Scene(new Group());
+        stage.setTitle("Table View Sample");
+        stage.setWidth(450);
+        stage.setHeight(500);
+ 
+        final Label label = new Label("Address Book");
+        label.setFont(new Font("Arial", 20));
+ 
+        table.setEditable(true);
+ 
+        TableColumn firstNameCol = new TableColumn("First Name");
+        firstNameCol.setMinWidth(100);
+        firstNameCol.setCellValueFactory(
+                new PropertyValueFactory&lt;Person, String&gt;("firstName"));
+ 
+        TableColumn lastNameCol = new TableColumn("Last Name");
+        lastNameCol.setMinWidth(100);
+        lastNameCol.setCellValueFactory(
+                new PropertyValueFactory&lt;Person, String&gt;("lastName"));
+ 
+        TableColumn emailCol = new TableColumn("Email");
+        emailCol.setMinWidth(200);
+        emailCol.setCellValueFactory(
+                new PropertyValueFactory&lt;Person, String&gt;("email"));
+ 
+        table.setItems(data);
+        table.getColumns().addAll(firstNameCol, lastNameCol, emailCol);
+ 
+        final VBox vbox = new VBox();
+        vbox.setSpacing(5);
+        vbox.setPadding(new Insets(10, 0, 0, 10));
+        vbox.getChildren().addAll(label, table);
+ 
+        ((Group) scene.getRoot()).getChildren().addAll(vbox);
+ 
+        stage.setScene(scene);
+        stage.show();
+    }
+ 
+    public static class Person {
+ 
+        private final SimpleStringProperty firstName;
+        private final SimpleStringProperty lastName;
+        private final SimpleStringProperty email;
+ 
+        private Person(String fName, String lName, String email) {
+            this.firstName = new SimpleStringProperty(fName);
+            this.lastName = new SimpleStringProperty(lName);
+            this.email = new SimpleStringProperty(email);
+        }
+ 
+        public String getFirstName() {
+            return firstName.get();
+        }
+ 
+        public void setFirstName(String fName) {
+            firstName.set(fName);
+        }
+ 
+        public String getLastName() {
+            return lastName.get();
+        }
+ 
+        public void setLastName(String fName) {
+            lastName.set(fName);
+        }
+ 
+        public String getEmail() {
+            return email.get();
+        }
+ 
+        public void setEmail(String fName) {
+            email.set(fName);
+        }
+    }
+} 
+</pre></div>
+<!-- class="example" -->
+<p>When you compile and run this application code, the table shown in <a href="http://docs.oracle.com/javafx/2/ui_controls/table-view.htm#CJAEDBIA">Figure 12-4</a> appears.</p>
+<div class="figure"><a id="CJAEDBIA" name="CJAEDBIA"></a><a id="JFXUC272" name="JFXUC272"></a>
+<p class="titleinfigure">Figure 12-4 Table Populated with Data</p>
+<img src="./index_files/table-data.png" alt="A table populated with contact information" title="A table populated with contact information" longdesc="img_text/table-data.htm"><br>
+<a id="sthref108" name="sthref108" href="http://docs.oracle.com/javafx/2/ui_controls/img_text/table-data.htm">Description of "Figure 12-4 Table Populated with Data"</a><br>
+<br></div>
+<!-- class="figure" --></div>
+<!-- class="sect1" -->
+<a id="JFXUC273" name="JFXUC273"></a>
+<div class="sect1"><!-- infolevel="all" infotype="General" --><a id="sthref109" name="sthref109"></a>
+<h2 class="sect1">Adding New Rows</h2>
+<p>The table in <a href="http://docs.oracle.com/javafx/2/ui_controls/table-view.htm#CJAEDBIA">Figure 12-4</a> contains five rows of data, which cannot be modified so far.</p>
+<p>You can use text fields to enter new values into the First Name, Last Name, and Email columns. The <a href="http://docs.oracle.com/javafx/2/ui_controls/text-field.htm#BABBCEIG">Text Field</a> control enables your application to receive text input from a user. <a href="http://docs.oracle.com/javafx/2/ui_controls/table-view.htm#CJAHBCII">Example 12-7</a> creates three text fields, defines the prompt text for each field, and creates the Add button.</p>
+<div class="example"><a id="CJAHBCII" name="CJAHBCII"></a><a id="JFXUC274" name="JFXUC274"></a>
+<p class="titleinexample">Example 12-7 Using Text Fields to Enter New Items in the Table</p>
+<pre xml:space="preserve" class="oac_no_warn">final TextField addFirstName = new TextField();
+addFirstName.setPromptText("First Name");
+addFirstName.setMaxWidth(firstNameCol.getPrefWidth());
+final TextField addLastName = new TextField();
+addLastName.setMaxWidth(lastNameCol.getPrefWidth());
+addLastName.setPromptText("Last Name");
+final TextField addEmail = new TextField();
+addEmail.setMaxWidth(emailCol.getPrefWidth());
+addEmail.setPromptText("Email");
+ 
+final Button addButton = new Button("Add");
+addButton.setOnAction(new EventHandler&lt;ActionEvent&gt;() {
+    @Override public void handle(ActionEvent e) {
+        data.add(new Person(
+            addFirstName.getText(),
+            addLastName.getText(),
+            addEmail.getText()
+        ));
+        addFirstName.clear();
+        addLastName.clear();
+        addEmail.clear();
+    }
+});
+</pre></div>
+<!-- class="example" -->
+<p>When a user clicks the Add button, the values entered in the text fields are included in a <code>Person</code> constructor and added to the <code>data</code> observable list. Thus, the new entry with contact information appears in the table.</p>
+<p>Examine the application code shown in <a href="http://docs.oracle.com/javafx/2/ui_controls/table-view.htm#CJAFABCH">Example 12-8</a>.</p>
+<div class="example"><a id="CJAFABCH" name="CJAFABCH"></a><a id="JFXUC275" name="JFXUC275"></a>
+<p class="titleinexample">Example 12-8 Table with the Text Fields to Enter New Items</p>
+<pre xml:space="preserve" class="oac_no_warn">import javafx.application.Application;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
+import javafx.geometry.Insets;
+import javafx.scene.Group;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
+import javafx.scene.text.Font;
+import javafx.stage.Stage;
+ 
+public class FileChooserSample extends Application {
+ 
+    private TableView&lt;Person&gt; table = new TableView&lt;Person&gt;();
+    private final ObservableList&lt;Person&gt; data =
+            FXCollections.observableArrayList(
+            new Person("Jacob", "Smith", "jacob.smith@example.com"),
+            new Person("Isabella", "Johnson", "isabella.johnson@example.com"),
+            new Person("Ethan", "Williams", "ethan.williams@example.com"),
+            new Person("Emma", "Jones", "emma.jones@example.com"),
+            new Person("Michael", "Brown", "michael.brown@example.com"));
+    final HBox hb = new HBox();
+ 
+    public static void main(String[] args) {
+        launch(args);
+    }
+ 
+    @Override
+    public void start(Stage stage) {
+        Scene scene = new Scene(new Group());
+        stage.setTitle("Table View Sample");
+        stage.setWidth(450);
+        stage.setHeight(550);
+ 
+        final Label label = new Label("Address Book");
+        label.setFont(new Font("Arial", 20));
+ 
+        table.setEditable(true);
+ 
+        TableColumn firstNameCol = new TableColumn("First Name");
+        firstNameCol.setMinWidth(100);
+        firstNameCol.setCellValueFactory(
+                new PropertyValueFactory&lt;Person, String&gt;("firstName"));
+ 
+        TableColumn lastNameCol = new TableColumn("Last Name");
+        lastNameCol.setMinWidth(100);
+        lastNameCol.setCellValueFactory(
+                new PropertyValueFactory&lt;Person, String&gt;("lastName"));
+ 
+        TableColumn emailCol = new TableColumn("Email");
+        emailCol.setMinWidth(200);
+        emailCol.setCellValueFactory(
+                new PropertyValueFactory&lt;Person, String&gt;("email"));
+ 
+        table.setItems(data);
+        table.getColumns().addAll(firstNameCol, lastNameCol, emailCol);
+ 
+        final TextField addFirstName = new TextField();
+        addFirstName.setPromptText("First Name");
+        addFirstName.setMaxWidth(firstNameCol.getPrefWidth());
+        final TextField addLastName = new TextField();
+        addLastName.setMaxWidth(lastNameCol.getPrefWidth());
+        addLastName.setPromptText("Last Name");
+        final TextField addEmail = new TextField();
+        addEmail.setMaxWidth(emailCol.getPrefWidth());
+        addEmail.setPromptText("Email");
+ 
+        final Button addButton = new Button("Add");
+        addButton.setOnAction(new EventHandler&lt;ActionEvent&gt;() {
+            @Override
+            public void handle(ActionEvent e) {
+                data.add(new Person(
+                        addFirstName.getText(),
+                        addLastName.getText(),
+                        addEmail.getText()));
+                addFirstName.clear();
+                addLastName.clear();
+                addEmail.clear();
+            }
+        });
+ 
+        hb.getChildren().addAll(addFirstName, addLastName, addEmail, addButton);
+        hb.setSpacing(3);
+ 
+        final VBox vbox = new VBox();
+        vbox.setSpacing(5);
+        vbox.setPadding(new Insets(10, 0, 0, 10));
+        vbox.getChildren().addAll(label, table, hb);
+ 
+        ((Group) scene.getRoot()).getChildren().addAll(vbox);
+ 
+        stage.setScene(scene);
+        stage.show();
+    }
+ 
+    public static class Person {
+ 
+        private final SimpleStringProperty firstName;
+        private final SimpleStringProperty lastName;
+        private final SimpleStringProperty email;
+ 
+        private Person(String fName, String lName, String email) {
+            this.firstName = new SimpleStringProperty(fName);
+            this.lastName = new SimpleStringProperty(lName);
+            this.email = new SimpleStringProperty(email);
+        }
+ 
+        public String getFirstName() {
+            return firstName.get();
+        }
+ 
+        public void setFirstName(String fName) {
+            firstName.set(fName);
+        }
+ 
+        public String getLastName() {
+            return lastName.get();
+        }
+ 
+        public void setLastName(String fName) {
+            lastName.set(fName);
+        }
+ 
+        public String getEmail() {
+            return email.get();
+        }
+ 
+        public void setEmail(String fName) {
+            email.set(fName);
+        }
+    }
+} 
+</pre></div>
+<!-- class="example" -->
+<p>This application does not provide any filters to check if, for example, an email address was entered in an incorrect format. You can provide such functionality when you develop your own application.</p>
+<p>The current implementation also does not check to determine if the empty values are entered. If no values are provided, clicking the Add button inserts an empty row in the table.</p>
+<p><a href="http://docs.oracle.com/javafx/2/ui_controls/table-view.htm#CJADIDIE">Figure 12-5</a> demonstrates how a user adds a new row of data.</p>
+<div class="figure"><a id="CJADIDIE" name="CJADIDIE"></a><a id="JFXUC276" name="JFXUC276"></a>
+<p class="titleinfigure">Figure 12-5 Adding Contact Information to the Address Book</p>
+<img src="./index_files/table-add.png" alt="A table with text fields to add new data" title="A table with text fields to add new data" longdesc="img_text/table-add.htm"><br>
+<a id="sthref110" name="sthref110" href="http://docs.oracle.com/javafx/2/ui_controls/img_text/table-add.htm">Description of "Figure 12-5 Adding Contact Information to the Address Book"</a><br>
+<br></div>
+<!-- class="figure" -->
+<p><a href="http://docs.oracle.com/javafx/2/ui_controls/table-view.htm#CJAJBIGI">Figure 12-6</a> shows the table after the Add button is clicked. The contact details of Emma White now appear in the table.</p>
+<div class="figure"><a id="CJAJBIGI" name="CJAJBIGI"></a><a id="JFXUC277" name="JFXUC277"></a>
+<p class="titleinfigure">Figure 12-6 Newly Added Entry</p>
+<img src="./index_files/table-added.png" alt="The newly entered data in the address book" title="The newly entered data in the address book" longdesc="img_text/table-added.htm"><br>
+<a id="sthref111" name="sthref111" href="http://docs.oracle.com/javafx/2/ui_controls/img_text/table-added.htm">Description of "Figure 12-6 Newly Added Entry"</a><br>
+<br></div>
+<!-- class="figure" --></div>
+<!-- class="sect1" -->
+<a id="JFXUC278" name="JFXUC278"></a>
+<div class="sect1"><!-- infolevel="all" infotype="General" --><a id="sthref112" name="sthref112"></a>
+<h2 class="sect1">Sorting Data in Columns</h2>
+<p>The <code>TableView</code> class provides built-in capabilities to sort data in columns. Users can alter the order of data by clicking column headers. The first click enables the ascending sorting order, the second click enables descending sorting order, and the third click disables sorting. By default, no sorting is applied.</p>
+<p>Users can sort multiple columns in a table and specify the priority of each column in the sort operation. To sort multiple columns, the user presses the Shift key while clicking the header of each column to be sorted.</p>
+<p>In <a href="http://docs.oracle.com/javafx/2/ui_controls/table-view.htm#CJAJDBJC">Figure 12-7</a>, an ascending sort order is applied to the first names, while last names are sorted in a descending order. Note that the first column has priority over the second column.</p>
+<div class="figure"><a id="CJAJDBJC" name="CJAJDBJC"></a><a id="JFXUC279" name="JFXUC279"></a>
+<p class="titleinfigure">Figure 12-7 Sorting Multiple Columns</p>
+<img src="./index_files/table-sort.png" alt="A table with the data sorted by columns." title="A table with the data sorted by columns." longdesc="img_text/table-sort.htm"><br>
+<a id="sthref113" name="sthref113" href="http://docs.oracle.com/javafx/2/ui_controls/img_text/table-sort.htm">Description of "Figure 12-7 Sorting Multiple Columns"</a><br>
+<br></div>
+<!-- class="figure" -->
+<p>As the application developer, you can set sorting preferences for each column in your application by applying the <code>setSortType</code> method. You can specify both ascending and descending type. For example, use the following code line to set the descending type of sorting for the emailCol column: <code>emailCol.setSortType(TableColumn.SortType.DESCENDING);</code>.</p>
+<p>You can also specify which columns to sort by adding and removing <code>TableColumn</code> instances from the <code>TableView.sortOrder</code> observable list. The order of columns in this list represents the sort priority (for example, the zero item has higher priority than the first item).</p>
+<p>To prohibit sorting of data, call the <code>setSortable(false)</code> method on the column.</p>
+</div>
+<!-- class="sect1" -->
+<a id="JFXUC280" name="JFXUC280"></a>
+<div class="sect1"><!-- infolevel="all" infotype="General" --><a id="sthref114" name="sthref114"></a>
+<h2 class="sect1">Editing Data in the Table</h2>
+<p>The <code>TableView</code> class not only renders tabular data, but it also provides capabilities to edit it. Use the <code>setEditable</code> method to enable editing of the table content.</p>
+<p>Use the <code>setCellFactory</code> method to reimplement the table cell as a text field with the help of the <code>TextFieldTableCell</code> class. The <code>setOnEditCommit</code> method processes editing and assigns the updated value to the corresponding table cell. <a href="http://docs.oracle.com/javafx/2/ui_controls/table-view.htm#CJAGDAHE">Example 12-9</a> shows how to apply these methods to process cell editing in the First Name, Last Name, and Email columns.</p>
+<div class="example"><a id="CJAGDAHE" name="CJAGDAHE"></a><a id="JFXUC281" name="JFXUC281"></a>
+<p class="titleinexample">Example 12-9 Implementing Cell Editing</p>
+<pre xml:space="preserve" class="oac_no_warn">firstNameCol.setCellFactory(TextFieldTableCell.forTableColumn());
+firstNameCol.setOnEditCommit(
+    new EventHandler&lt;CellEditEvent&lt;Person, String&gt;&gt;() {
+        @Override
+        public void handle(CellEditEvent&lt;Person, String&gt; t) {
+            ((Person) t.getTableView().getItems().get(
+                t.getTablePosition().getRow())
+                ).setFirstName(t.getNewValue());
+        }
+    }
+);
+
+lastNameCol.setCellFactory(TextFieldTableCell.forTableColumn());
+lastNameCol.setOnEditCommit(
+    new EventHandler&lt;CellEditEvent&lt;Person, String&gt;&gt;() {
+        @Override
+        public void handle(CellEditEvent&lt;Person, String&gt; t) {
+            ((Person) t.getTableView().getItems().get(
+                t.getTablePosition().getRow())
+                ).setLastName(t.getNewValue());
+        }
+    }
+);
+
+emailCol.setCellFactory(TextFieldTableCell.forTableColumn());
+emailCol.setOnEditCommit(
+    new EventHandler&lt;CellEditEvent&lt;Person, String&gt;&gt;() {
+        @Override
+        public void handle(CellEditEvent&lt;Person, String&gt; t) {
+            ((Person) t.getTableView().getItems().get(
+                t.getTablePosition().getRow())
+                ).setEmail(t.getNewValue());
+        }
+    }
+);
+
+</pre></div>
+<!-- class="example" -->
+<p>The complete code of the application shown in <a href="http://docs.oracle.com/javafx/2/ui_controls/table-view.htm#CEGFCFEB">Example 12-10</a>.</p>
+<div class="example"><a id="CEGFCFEB" name="CEGFCFEB"></a><a id="JFXUC375" name="JFXUC375"></a>
+<p class="titleinexample">Example 12-10 TableViewSample with Enabled Cell Editing</p>
+<pre xml:space="preserve" class="oac_no_warn">import javafx.application.Application;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
+import javafx.geometry.Insets;
+import javafx.scene.Group;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableColumn.CellEditEvent;
+import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.control.cell.TextFieldTableCell;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
+import javafx.scene.text.Font;
+import javafx.stage.Stage;
+ 
+public class TableViewSample extends Application {
+ 
+    private TableView&lt;Person&gt; table = new TableView&lt;Person&gt;();
+    private final ObservableList&lt;Person&gt; data =
+            FXCollections.observableArrayList(
+            new Person("Jacob", "Smith", "jacob.smith@example.com"),
+            new Person("Isabella", "Johnson", "isabella.johnson@example.com"),
+            new Person("Ethan", "Williams", "ethan.williams@example.com"),
+            new Person("Emma", "Jones", "emma.jones@example.com"),
+            new Person("Michael", "Brown", "michael.brown@example.com"));
+    final HBox hb = new HBox();
+ 
+    public static void main(String[] args) {
+        launch(args);
+    }
+ 
+    @Override
+    public void start(Stage stage) {
+        Scene scene = new Scene(new Group());
+        stage.setTitle("Table View Sample");
+        stage.setWidth(450);
+        stage.setHeight(550);
+ 
+        final Label label = new Label("Address Book");
+        label.setFont(new Font("Arial", 20));
+ 
+        table.setEditable(true);
+ 
+        TableColumn firstNameCol = new TableColumn("First Name");
+        firstNameCol.setMinWidth(100);
+        firstNameCol.setCellValueFactory(
+            new PropertyValueFactory&lt;Person, String&gt;("firstName"));
+        firstNameCol.setCellFactory(TextFieldTableCell.forTableColumn());
+        firstNameCol.setOnEditCommit(
+            new EventHandler&lt;CellEditEvent&lt;Person, String&gt;&gt;() {
+                @Override
+                public void handle(CellEditEvent&lt;Person, String&gt; t) {
+                    ((Person) t.getTableView().getItems().get(
+                            t.getTablePosition().getRow())
+                            ).setFirstName(t.getNewValue());
+                }
+            }
+        );
+ 
+ 
+        TableColumn lastNameCol = new TableColumn("Last Name");
+        lastNameCol.setMinWidth(100);
+        lastNameCol.setCellValueFactory(
+            new PropertyValueFactory&lt;Person, String&gt;("lastName"));
+        lastNameCol.setCellFactory(TextFieldTableCell.forTableColumn());
+        lastNameCol.setOnEditCommit(
+            new EventHandler&lt;CellEditEvent&lt;Person, String&gt;&gt;() {
+                @Override
+                public void handle(CellEditEvent&lt;Person, String&gt; t) {
+                    ((Person) t.getTableView().getItems().get(
+                        t.getTablePosition().getRow())
+                        ).setLastName(t.getNewValue());
+                }
+            }
+        );
+ 
+        TableColumn emailCol = new TableColumn("Email");
+        emailCol.setMinWidth(200);
+        emailCol.setCellValueFactory(
+            new PropertyValueFactory&lt;Person, String&gt;("email"));
+        emailCol.setCellFactory(TextFieldTableCell.forTableColumn());
+        emailCol.setOnEditCommit(
+            new EventHandler&lt;CellEditEvent&lt;Person, String&gt;&gt;() {
+                @Override
+                public void handle(CellEditEvent&lt;Person, String&gt; t) {
+                    ((Person) t.getTableView().getItems().get(
+                        t.getTablePosition().getRow())
+                        ).setEmail(t.getNewValue());
+                }
+            }
+        );
+ 
+        table.setItems(data);
+        table.getColumns().addAll(firstNameCol, lastNameCol, emailCol);
+ 
+        final TextField addFirstName = new TextField();
+        addFirstName.setPromptText("First Name");
+        addFirstName.setMaxWidth(firstNameCol.getPrefWidth());
+        final TextField addLastName = new TextField();
+        addLastName.setMaxWidth(lastNameCol.getPrefWidth());
+        addLastName.setPromptText("Last Name");
+        final TextField addEmail = new TextField();
+        addEmail.setMaxWidth(emailCol.getPrefWidth());
+        addEmail.setPromptText("Email");
+ 
+        final Button addButton = new Button("Add");
+        addButton.setOnAction(new EventHandler&lt;ActionEvent&gt;() {
+            @Override
+            public void handle(ActionEvent e) {
+                data.add(new Person(
+                        addFirstName.getText(),
+                        addLastName.getText(),
+                        addEmail.getText()));
+                addFirstName.clear();
+                addLastName.clear();
+                addEmail.clear();
+            }
+        });
+ 
+        hb.getChildren().addAll(addFirstName, addLastName, addEmail, addButton);
+        hb.setSpacing(3);
+ 
+        final VBox vbox = new VBox();
+        vbox.setSpacing(5);
+        vbox.setPadding(new Insets(10, 0, 0, 10));
+        vbox.getChildren().addAll(label, table, hb);
+ 
+        ((Group) scene.getRoot()).getChildren().addAll(vbox);
+ 
+        stage.setScene(scene);
+        stage.show();
+    }
+ 
+    public static class Person {
+ 
+        private final SimpleStringProperty firstName;
+        private final SimpleStringProperty lastName;
+        private final SimpleStringProperty email;
+ 
+        private Person(String fName, String lName, String email) {
+            this.firstName = new SimpleStringProperty(fName);
+            this.lastName = new SimpleStringProperty(lName);
+            this.email = new SimpleStringProperty(email);
+        }
+ 
+        public String getFirstName() {
+            return firstName.get();
+        }
+ 
+        public void setFirstName(String fName) {
+            firstName.set(fName);
+        }
+ 
+        public String getLastName() {
+            return lastName.get();
+        }
+ 
+        public void setLastName(String fName) {
+            lastName.set(fName);
+        }
+ 
+        public String getEmail() {
+            return email.get();
+        }
+ 
+        public void setEmail(String fName) {
+            email.set(fName);
+        }
+    }
+}
+</pre></div>
+<!-- class="example" -->
+<p>In <a href="http://docs.oracle.com/javafx/2/ui_controls/table-view.htm#CJAEHEBD">Figure 12-8</a>, the user is editing the last name of Michael Brown. To edit a table cell, the user enters the new value in the cell, and then presses the Enter key. The cell is not modified until the Enter key is pressed. This behavior is determined by the implementation of the <code>TextField</code> class.</p>
+<div class="figure"><a id="CJAEHEBD" name="CJAEHEBD"></a><a id="JFXUC284" name="JFXUC284"></a>
+<p class="titleinfigure">Figure 12-8 Editing a Table Cell</p>
+<img src="./index_files/table-edit.png" alt="An edited table." title="An edited table." longdesc="img_text/table-edit.htm"><br>
+<a id="sthref115" name="sthref115" href="http://docs.oracle.com/javafx/2/ui_controls/img_text/table-edit.htm">Description of "Figure 12-8 Editing a Table Cell"</a><br>
+<br></div>
+<!-- class="figure" -->
+<p>Note that the default implementation of the <code>TextField</code> control requires that users press the Enter key to commit the edit. You can redefine the <code>TextField</code> behavior to commit the edit on the focus change, which is an expected user experience. Try the modified code in to implement such an alternative behavior.</p>
+<div class="example"><a id="JFXUC376" name="JFXUC376"></a><a id="sthref116" name="sthref116"></a>
+<p class="titleinexample">Example 12-11 Alternative Solution Of Cell Editing</p>
+<pre xml:space="preserve" class="oac_no_warn">import javafx.application.Application;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
+import javafx.geometry.Insets;
+import javafx.scene.Group;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TableCell;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableColumn.CellEditEvent;
+import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
+import javafx.scene.text.Font;
+import javafx.stage.Stage;
+import javafx.util.Callback;
+ 
+public class TableViewSample extends Application {
+ 
+    private TableView&lt;Person&gt; table = new TableView&lt;Person&gt;();
+    private final ObservableList&lt;Person&gt; data =
+            FXCollections.observableArrayList(
+            new Person("Jacob", "Smith", "jacob.smith@example.com"),
+            new Person("Isabella", "Johnson", "isabella.johnson@example.com"),
+            new Person("Ethan", "Williams", "ethan.williams@example.com"),
+            new Person("Emma", "Jones", "emma.jones@example.com"),
+            new Person("Michael", "Brown", "michael.brown@example.com"));
+    final HBox hb = new HBox();
+ 
+    public static void main(String[] args) {
+        launch(args);
+    }
+ 
+    @Override
+    public void start(Stage stage) {
+        Scene scene = new Scene(new Group());
+        stage.setTitle("Table View Sample");
+        stage.setWidth(450);
+        stage.setHeight(550);
+ 
+        final Label label = new Label("Address Book");
+        label.setFont(new Font("Arial", 20));
+ 
+        table.setEditable(true);
+        Callback&lt;TableColumn, TableCell&gt; cellFactory =
+             new Callback&lt;TableColumn, TableCell&gt;() {
+                 public TableCell call(TableColumn p) {
+                    return new EditingCell();
+                 }
+             };
+ 
+        TableColumn firstNameCol = new TableColumn("First Name");
+        firstNameCol.setMinWidth(100);
+        firstNameCol.setCellValueFactory(
+            new PropertyValueFactory&lt;Person, String&gt;("firstName"));
+        firstNameCol.setCellFactory(cellFactory);
+        firstNameCol.setOnEditCommit(
+            new EventHandler&lt;CellEditEvent&lt;Person, String&gt;&gt;() {
+                @Override
+                public void handle(CellEditEvent&lt;Person, String&gt; t) {
+                    ((Person) t.getTableView().getItems().get(
+                        t.getTablePosition().getRow())
+                        ).setFirstName(t.getNewValue());
+                }
+             }
+        );
+ 
+ 
+        TableColumn lastNameCol = new TableColumn("Last Name");
+        lastNameCol.setMinWidth(100);
+        lastNameCol.setCellValueFactory(
+            new PropertyValueFactory&lt;Person, String&gt;("lastName"));
+        lastNameCol.setCellFactory(cellFactory);
+        lastNameCol.setOnEditCommit(
+            new EventHandler&lt;CellEditEvent&lt;Person, String&gt;&gt;() {
+                @Override
+                public void handle(CellEditEvent&lt;Person, String&gt; t) {
+                    ((Person) t.getTableView().getItems().get(
+                        t.getTablePosition().getRow())
+                        ).setLastName(t.getNewValue());
+                }
+            }
+        );
+ 
+        TableColumn emailCol = new TableColumn("Email");
+        emailCol.setMinWidth(200);
+        emailCol.setCellValueFactory(
+            new PropertyValueFactory&lt;Person, String&gt;("email"));
+        emailCol.setCellFactory(cellFactory);
+        emailCol.setOnEditCommit(
+            new EventHandler&lt;CellEditEvent&lt;Person, String&gt;&gt;() {
+                @Override
+                public void handle(CellEditEvent&lt;Person, String&gt; t) {
+                    ((Person) t.getTableView().getItems().get(
+                        t.getTablePosition().getRow())
+                        ).setEmail(t.getNewValue());
+                }
+            }
+        );
+ 
+        table.setItems(data);
+        table.getColumns().addAll(firstNameCol, lastNameCol, emailCol);
+ 
+        final TextField addFirstName = new TextField();
+        addFirstName.setPromptText("First Name");
+        addFirstName.setMaxWidth(firstNameCol.getPrefWidth());
+        final TextField addLastName = new TextField();
+        addLastName.setMaxWidth(lastNameCol.getPrefWidth());
+        addLastName.setPromptText("Last Name");
+        final TextField addEmail = new TextField();
+        addEmail.setMaxWidth(emailCol.getPrefWidth());
+        addEmail.setPromptText("Email");
+ 
+        final Button addButton = new Button("Add");
+        addButton.setOnAction(new EventHandler&lt;ActionEvent&gt;() {
+            @Override
+            public void handle(ActionEvent e) {
+                data.add(new Person(
+                        addFirstName.getText(),
+                        addLastName.getText(),
+                        addEmail.getText()));
+                addFirstName.clear();
+                addLastName.clear();
+                addEmail.clear();
+            }
+        });
+ 
+        hb.getChildren().addAll(addFirstName, addLastName, addEmail, addButton);
+        hb.setSpacing(3);
+ 
+        final VBox vbox = new VBox();
+        vbox.setSpacing(5);
+        vbox.setPadding(new Insets(10, 0, 0, 10));
+        vbox.getChildren().addAll(label, table, hb);
+ 
+        ((Group) scene.getRoot()).getChildren().addAll(vbox);
+ 
+        stage.setScene(scene);
+        stage.show();
+    }
+ 
+    public static class Person {
+ 
+        private final SimpleStringProperty firstName;
+        private final SimpleStringProperty lastName;
+        private final SimpleStringProperty email;
+ 
+        private Person(String fName, String lName, String email) {
+            this.firstName = new SimpleStringProperty(fName);
+            this.lastName = new SimpleStringProperty(lName);
+            this.email = new SimpleStringProperty(email);
+        }
+ 
+        public String getFirstName() {
+            return firstName.get();
+        }
+ 
+        public void setFirstName(String fName) {
+            firstName.set(fName);
+        }
+ 
+        public String getLastName() {
+            return lastName.get();
+        }
+ 
+        public void setLastName(String fName) {
+            lastName.set(fName);
+        }
+ 
+        public String getEmail() {
+            return email.get();
+        }
+ 
+        public void setEmail(String fName) {
+            email.set(fName);
+        }
+    }
+ 
+    class EditingCell extends TableCell&lt;Person, String&gt; {
+ 
+        private TextField textField;
+ 
+        public EditingCell() {
+        }
+ 
+        @Override
+        public void startEdit() {
+            if (!isEmpty()) {
+                super.startEdit();
+                createTextField();
+                setText(null);
+                setGraphic(textField);
+                textField.selectAll();
+            }
+        }
+ 
+        @Override
+        public void cancelEdit() {
+            super.cancelEdit();
+ 
+            setText((String) getItem());
+            setGraphic(null);
+        }
+ 
+        @Override
+        public void updateItem(String item, boolean empty) {
+            super.updateItem(item, empty);
+ 
+            if (empty) {
+                setText(null);
+                setGraphic(null);
+            } else {
+                if (isEditing()) {
+                    if (textField != null) {
+                        textField.setText(getString());
+                    }
+                    setText(null);
+                    setGraphic(textField);
+                } else {
+                    setText(getString());
+                    setGraphic(null);
+                }
+            }
+        }
+ 
+        private void createTextField() {
+            textField = new TextField(getString());
+            textField.setMinWidth(this.getWidth() - this.getGraphicTextGap()* 2);
+            textField.focusedProperty().addListener(new ChangeListener&lt;Boolean&gt;(){
+                @Override
+                public void changed(ObservableValue&lt;? extends Boolean&gt; arg0, 
+                    Boolean arg1, Boolean arg2) {
+                        if (!arg2) {
+                            commitEdit(textField.getText());
+                        }
+                }
+            });
+        }
+ 
+        private String getString() {
+            return getItem() == null ? "" : getItem().toString();
+        }
+    }
+}
+</pre></div>
+<!-- class="example" -->
+<p>Note that this approach might become redundant in future releases as the <code>TextFieldTableCell</code> implementation is being evolved to provide better user experience.</p>
+</div>
+<!-- class="sect1" -->
+<a id="JFXUC511" name="JFXUC511"></a>
+<div class="sect1"><!-- infolevel="all" infotype="General" --><a id="sthref117" name="sthref117"></a>
+<h2 class="sect1">Adding Maps of Data to the Table</h2>
+<p>Starting JavaFX SDK 2.2, you can add the <code>Map</code> data to the table. Use the <code>MapValueFactory</code> class as shown in <a href="http://docs.oracle.com/javafx/2/ui_controls/table-view.htm#CEGHGDFA">Example 12-12</a> to display the map of student IDs in the table.</p>
+<div class="example"><a id="CEGHGDFA" name="CEGHGDFA"></a><a id="JFXUC512" name="JFXUC512"></a>
+<p class="titleinexample">Example 12-12 Adding Map Data to the Table</p>
+<pre xml:space="preserve" class="oac_no_warn">import java.util.HashMap;
+import java.util.Map;
+import javafx.application.Application;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.geometry.Insets;
+import javafx.scene.Group;
+import javafx.scene.Scene;
+import javafx.scene.control.Label;
+import javafx.scene.control.TableCell;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.MapValueFactory;
+import javafx.scene.control.cell.TextFieldTableCell;
+import javafx.scene.layout.VBox;
+import javafx.scene.text.Font;
+import javafx.stage.Stage;
+import javafx.util.Callback;
+import javafx.util.StringConverter;
+ 
+public class TableViewSample extends Application {
+ 
+    <span class="bold">public static final String Column1MapKey = "A";</span>
+    <span class="bold">public static final String Column2MapKey = "B";</span>
+ 
+    public static void main(String[] args) {
+        launch(args);
+    }
+ 
+    @Override
+    public void start(Stage stage) {
+        Scene scene = new Scene(new Group());
+        stage.setTitle("Table View Sample");
+        stage.setWidth(300);
+        stage.setHeight(500);
+        
+        final Label label = new Label("Student IDs");
+        label.setFont(new Font("Arial", 20));
+ 
+        TableColumn&lt;Map, String&gt; firstDataColumn = new TableColumn&lt;&gt;("Class A");
+        TableColumn&lt;Map, String&gt; secondDataColumn = new TableColumn&lt;&gt;("Class B");
+ 
+        <span class="bold">firstDataColumn.setCellValueFactory(new MapValueFactory(Column1MapKey));</span>
+        firstDataColumn.setMinWidth(130);
+        <span class="bold">secondDataColumn.setCellValueFactory(new MapValueFactory(Column2MapKey));</span>
+        secondDataColumn.setMinWidth(130);
+ 
+        <span class="bold">TableView table_view = new TableView&lt;&gt;(generateDataInMap());</span>
+ 
+        table_view.setEditable(true);
+        table_view.getSelectionModel().setCellSelectionEnabled(true);
+        table_view.getColumns().setAll(firstDataColumn, secondDataColumn);
+        <span class="bold">Callback&lt;TableColumn&lt;Map, String&gt;, TableCell&lt;Map, String&gt;&gt;</span>
+            <span class="bold">cellFactoryForMap = new Callback&lt;TableColumn&lt;Map, String&gt;,</span>
+                <span class="bold">TableCell&lt;Map, String&gt;&gt;() {</span>
+                    <span class="bold">@Override</span>
+                    <span class="bold">public TableCell call(TableColumn p) {</span>
+                        <span class="bold">return new TextFieldTableCell(new StringConverter() {</span>
+                            <span class="bold">@Override</span>
+                            <span class="bold">public String toString(Object t) {</span>
+                                <span class="bold">return t.toString();</span>
+                            <span class="bold">}</span>
+                            <span class="bold">@Override</span>
+                            <span class="bold">public Object fromString(String string) {</span>
+                                <span class="bold">return string;</span>
+                            <span class="bold">}</span>                                    
+                        <span class="bold">});</span>
+                    <span class="bold">}</span>
+        <span class="bold">};</span>
+        <span class="bold">firstDataColumn.setCellFactory(cellFactoryForMap);</span>
+        <span class="bold">secondDataColumn.setCellFactory(cellFactoryForMap);</span>
+ 
+        final VBox vbox = new VBox();
+ 
+        vbox.setSpacing(5);
+        vbox.setPadding(new Insets(10, 0, 0, 10));
+        vbox.getChildren().addAll(label, table_view);
+ 
+        ((Group) scene.getRoot()).getChildren().addAll(vbox);
+ 
+        stage.setScene(scene);
+ 
+        stage.show();
+    }
+ 
+    <span class="bold">private ObservableList&lt;Map&gt; generateDataInMap() {</span>
+        <span class="bold">int max = 10;</span>
+        <span class="bold">ObservableList&lt;Map&gt; allData = FXCollections.observableArrayList();</span>
+        <span class="bold">for (int i = 1; i &lt; max; i++) {</span>
+            <span class="bold">Map&lt;String, String&gt; dataRow = new HashMap&lt;&gt;();</span>
+ 
+            <span class="bold">String value1 = "A" + i;</span>
+            <span class="bold">String value2 = "B" + i;</span>
+ 
+            <span class="bold">dataRow.put(Column1MapKey, value1);</span>
+            <span class="bold">dataRow.put(Column2MapKey, value2);</span>
+ 
+            <span class="bold">allData.add(dataRow);</span>
+        }
+        <span class="bold">return allData;</span>
+    <span class="bold">}</span>
+}
+</pre></div>
+<!-- class="example" -->
+<p>The <code>MapValueFactory</code> class implements the <code>Callback</code> interface, and it is designed specifically to be used within cell factories of table columns. In <a href="http://docs.oracle.com/javafx/2/ui_controls/table-view.htm#CEGHGDFA">Example 12-12</a>, the dataRow hash map presents a single row in the <code>TableView</code> object. The map has two <code>String</code> keys: Column1MapKey and Column2MapKey to map the corresponding values in the first and second columns. The <code>setCellValueFactory</code> method called for the table columns populates them with data matching with a particular key, so that the first column contains values that correspond to the "A" key and second column contains the values that correspond to the "B" key.</p>
+<p>When you compile and run this application, it produces the output shown in <a href="http://docs.oracle.com/javafx/2/ui_controls/table-view.htm#CEGIJHEI">Figure 12-9</a>.</p>
+<div class="figure"><a id="CEGIJHEI" name="CEGIJHEI"></a><a id="JFXUC513" name="JFXUC513"></a>
+<p class="titleinfigure">Figure 12-9 TableVIew with Map Data</p>
+<img src="./index_files/table-map.png" alt="Description of Figure 12-9 follows" title="Description of Figure 12-9 follows" longdesc="img_text/table-map.htm"><br>
+<a id="sthref118" name="sthref118" href="http://docs.oracle.com/javafx/2/ui_controls/img_text/table-map.htm">Description of "Figure 12-9 TableVIew with Map Data"</a><br>
+<br></div>
+<!-- class="figure" -->
+<p class="itemizedlisttitle">Related API Documentation&nbsp;</p>
+<ul>
+<li>
+<p><a href="http://docs.oracle.com/javafx/2/api/javafx/scene/control/TableView.html"><code>TableView</code></a></p>
+</li>
+<li>
+<p><a href="http://docs.oracle.com/javafx/2/api/javafx/scene/control/TableColumn.html"><code>TableColumn</code></a></p>
+</li>
+<li>
+<p><a href="http://docs.oracle.com/javafx/2/api/javafx/scene/control/TableCell.html"><code>TableCell</code></a></p>
+</li>
+<li>
+<p><a href="http://docs.oracle.com/javafx/2/api/javafx/scene/control/TextField.html"><code>TextField</code></a></p>
+</li>
+<li>
+<p><a href="http://docs.oracle.com/javafx/2/api/javafx/scene/control/cell/TextFieldTableCell.html"><code>TextFieldTableCell</code></a></p>
+</li>
+<li>
+<p><a href="http://docs.oracle.com/javafx/2/api/javafx/scene/control/cell/MapValueFactory.html"><code>MapValueFactory</code></a></p>
+</li>
+<li>
+<p><a href="http://docs.oracle.com/javafx/2/api/javafx/scene/control/Button.html"><code>Button</code></a></p>
+</li>
+</ul>
+</div>
+<!-- class="sect1" -->
+	
+	
+
+    <!-- /////////////// End content copied from DARB output ////////////// -->
+
+    </div>  <!-- End ind div tag --> 
+
+  <!-- START NEXT_PREVIOUS BUTTONS -->
+  <div class="pagestepper">
+<table class="simple oac_no_warn" summary="" cellpadding="0" cellspacing="0" width="100%">
+<tbody>
+<tr>
+<td><div align="left"><a href="http://docs.oracle.com/javafx/2/ui_controls/list-view.htm"><img src="./index_files/javafx-previouspage.gif" alt="Previous" border="0"></a></div></td>
+<td><div align="right"><a href="http://docs.oracle.com/javafx/2/ui_controls/tree-view.htm"><img src="./index_files/javafx-nextpage.gif" alt="Next" border="0"></a></div></td>
+</tr>
+</tbody></table>
+</div>
+  <!-- END NEXT_PREVIOUS BUTTONS -->
+
+    
+<!-- end #mainContent --></div><br class="clearfloat">
+<!--///////// End Main Content /////////-->	
+    
+    
+    
+<!--///////// Footer /////////-->
+  <div id="footer">
+  
+  <!-- Start SiteCatalyst (Omniture) code   -->
+<script type="text/javascript" src="./index_files/s_code_download.js.&#19979;&#36733;"></script>
+<script type="text/javascript" src="./index_files/s_code.js.&#19979;&#36733;"></script>
+
+ 
+<!-- ********** DO NOT ALTER ANYTHING BELOW THIS LINE ! *********** -->
+
+<!--  Below code will send the info to Omniture server -->
+<script type="text/javascript">var s_code=s.t();if(s_code)document.write(s_code)</script>
+ 
+<!-- End SiteCatalyst code --> 
+
+<!-- Footer Legal info -->
+  <div id="fx_blur"><span class="copyrightlogo">Copyright&nbsp;©&nbsp;2008, 2013,&nbsp;Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved.</span> 
+  <a href="http://docs.oracle.com/javafx/dcommon/html/cpyr.htm"><br>
+  <span class="copyrightlogo">Legal Notices</span></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="copyrightlogo"><a href="http://docs.oracle.com/javafx/dcommon/html/accss.htm">Accessibility Statement</a></span>
+  </div> <!-- End footer legal info -->
+  
+  <!-- end #footer --></div>
+<!--///////// End Footer /////////-->
+
+<!-- end #container --></div>
+
+
+
+
+
+</body></html>

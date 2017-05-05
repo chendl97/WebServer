@@ -1,0 +1,580 @@
+@charset "utf-8";
+
+body {
+font-family: Verdana, Arial, Helvetica, sans-serif;
+font-size:12px;
+color:#333333;
+line-height:1.6em;
+}
+
+.breadcrumb  {
+font-family: Verdana, Arial, Helvetica, sans-serif;
+font-size:10px;
+font-weight:bold;
+padding-top:2px;
+}
+
+.breadcrumb a, a:link, a:visited, a:hover, a:active {
+color:#265F7F;
+text-decoration:none;
+}
+
+.javafx #container #mainContent #bookTitle h1 { /*book name*/
+color:#333333;
+font-family: Geneva, Arial, Helvetica, sans-serif;
+font-size:14px;
+
+background-image:url(../images/javafx-chapter_icon.gif);
+background-repeat: no-repeat;
+padding-left:36px;
+padding-top:10px;
+height:30px;
+display:block;
+}
+
+/* This tag is used for the Version number. It is <h1> to comply with accessibility 
+requirements of headings appearing in order. */
+#sidebar h1 {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size:11px;
+	color:#333333;
+	/* vertical-align: text-bottom;      */
+	margin-bottom: 0; /* formerly 2px; */
+	margin-top: 0; /* formerly 12px; */
+	padding-top: 2.8em; /*margin-top doesn't work for IE */
+	padding-bottom: 0.5em; /*added for IE */
+}
+
+#sidebar h3 {
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  color: #363636;
+  font-size: 105%;
+  font-weight: bold;
+  display: inline;
+}
+
+
+/* This tag is used for sect1 headings in the toc but could be used elsewhere in the sidebar. */
+#sidebar ul  {
+	list-style-type: none;
+	line-height: 1.3em;
+	margin-top: 0;
+	margin-right: 6px;
+	margin-bottom: 0;
+	margin-left: 6px;
+	padding-top: 3px; /* formerly 0; */
+	padding-right: 6px;
+	padding-bottom: 6px;   /* formerly 0; */
+	padding-left: 6px;
+}
+
+/* This tag is used for sect2 headings in the toc but could be used elsewhere in the sidebar. */
+#sidebar ul ul {
+	list-style-type: none;
+	margin-top: 0px;
+	margin-right: 6px;
+	margin-bottom: 0px;
+	margin-left: 6px;
+	padding-top: 0px;
+	padding-right: 6px;
+	padding-bottom: 0px;
+	padding-left: 6px;
+}
+
+/* This rule applies to the <h2> of boxes 2, 3, and 4 in the sidebar. It usees 
+a class rather than a heading definition because the chapter titles that we copy over from
+the DARB TOC are also an <h2> */
+.boxtitle  {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	color:#333333;
+	vertical-align: text-bottom;
+	margin-bottom: 3px;
+	margin-top: 6px;
+	font-size: 12px;
+}
+
+#container p {
+  margin-top: .5em;
+}  
+
+
+/* This tag applies to content lines in the sidebar boxes */
+#sidebar p {
+	margin-top: 0px;
+	margin-bottom: 0px;
+        line-height: normal;
+}
+
+/* The <h2> that is copied over from the DARB output TOC uses this class, but the 
+DARB CSS has not rule for it. */
+#sidebar_toc_box .tocheader {
+	font-size: 11px;
+	margin-top: 6px;
+	margin-bottom: 4px;
+}
+
+h1{/*article name*/
+color:#385E76;
+font-family: Geneva, Arial, Helvetica, sans-serif;
+font-size:24px;
+margin-top: 2.0em;  
+line-height:1.4em;  
+}
+
+h2{/*section name*/
+  font-family: Geneva, Arial, Helvetica, sans-serif;
+  font-size:18px;
+/*  font-weight:normal; */
+  color: #385E76;
+/*  margin-top: 1.2em;
+  margin-bottom: -0.05em; 
+  */
+  margin-bottom: 3px;
+}
+
+h3 {
+  font-family: Geneva, Arial, Helvetica, sans-serif;
+  font-size: 16px;
+/*  font-weight:bold; */
+  color: #385E76;
+  display: inline;
+/*  margin-top: 1.2em;
+  margin-bottom:-0.3em; 
+  */
+  margin-bottom: 3px;
+}
+
+h4 {
+  font-family: Geneva, Arial, Helvetica, sans-serif;
+  font-size: 14px;
+/*  font-weight:bold;   */
+  color: #385E76;
+  display: inline;
+/*  margin-top: 1.2em;
+  margin-bottom:-0.3em;
+  */
+  margin-bottom: 3px;
+}
+
+h5 {
+  font-family: Geneva, Arial, Helvetica, sans-serif;
+  font-size: 12px;
+/*  font-weight:bold;  */
+  color: #385E76;
+  font-style: italic;
+  display: inline;
+/*   margin-top: 1.2em;
+  margin-bottom:-0.3em; 
+  */
+    margin-bottom: 3px;
+}
+
+/* img def to increase padding under image */
+img {
+  padding-bottom: 18px;
+}
+
+.FX_type_med_gry  {
+font-family: Verdana, Arial, Helvetica, sans-serif;
+font-size:10px;
+color:#333333;
+}
+
+.FX_type_med_gry  a, a:link, a:visited, a:hover, a:active{
+color:#265F7F;
+text-decoration:none;
+}
+
+/* Define spacing between paragraphs. 
+.javafx #mainContent p {
+ paddingn-bottom: 0px;	
+} */
+
+/* This tag applies to li tags in table cells in the mainContent. The DARB definitions 
+below also have a definition for the td element */
+.javafx #mainContent td li p {
+	line-height:1.1em;
+} 
+
+
+/* This tag applies to li tags in mainContent */
+.javafx #mainContent li p {
+	line-height:1.5em;
+	padding:0px;
+	margin-top: auto;
+	margin-right: auto;
+	margin-bottom: 0.3em;
+	margin-left: auto; 
+} 
+/* The following tags were deleted on 4-7 in favor of the changes to the li p rule above.
+/* This tag applies to p tags in li in mainContent 
+.javafx #mainContent li p {
+    margin-bottom: 1px;
+} */
+
+/* This tag increases the padding in sublists 
+.javafx #mainContent ul ul, .javafx #mainContent ol ol {
+padding-bottom:3px;
+margin:auto;
+} */
+
+/* Tried combining this with ol li ol li
+.javafx #mainContent ul li ul li {
+	margin-top: .25em;
+} */
+
+.Formal, .HRuleFormal, .RuleFormal, .Informal, .HRuleInformal, .RuleInformal {
+background-color:#F9F9F9;
+border-color:#C7C7C7;
+}
+
+.example{
+	display:block;
+	padding:5px;
+	background-color:#F9F9F9;
+	border-color:#C7C7C7;
+	border:solid;
+	border-width:1px;
+	margin-bottom: 1.5em;
+}
+
+/* .example pre, removed from following line */
+pre, .synopsis {
+font-family: "Courier New", Courier, monospace;
+line-height: 1.4em;
+}
+
+/* Add background image to application list in body */
+#app_background {
+	background-repeat: no-repeat;
+	background-image: url(../images/fx_boxback.jpg);
+	padding-top: 6px;
+	padding-right: 12px;
+	padding-bottom: 6px;
+	padding-left: 12px;
+	border: 1px solid #CCD3DC;
+}
+
+
+/* taken from blafdoc.css */
+/*/////////////////////////////////////////////////////////////////*/
+/*/////////////////////////////////////////////////////////////////*/
+/*/////////////////////////////////////////////////////////////////*/
+
+a img, img[usemap] {
+  border-style: none;
+}
+
+/* Removed pre from following line */
+code, samp, tt {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 100%;
+}
+
+caption {
+  text-align: center;
+  font-weight: bold;
+  width: auto;
+}
+
+dt {
+  font-weight: bold;
+} 
+
+table {
+  font-size: small; /* for ICEBrowser */
+}
+
+td {
+  vertical-align: top;
+  line-height: 1.1em;
+}
+
+th {
+  font-weight: bold;
+  text-align: left;
+  vertical-align: bottom;
+}
+
+ol ol {
+  list-style-type: lower-alpha;
+}
+
+ol ol ol {
+  list-style-type: lower-roman;
+}
+
+/* Added on 5-3 to improve spacing in tables
+*/
+td {
+  padding-top: .6em;
+  padding-bottom: .6em;
+}  
+
+/* Added on 5-3 to improve spacing in tables  
+ */
+td p {
+  margin-top: 0.5em;
+  margin-bottom: 0px;
+}  
+
+td p:first-child, td pre:first-child {
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+table.table-border {
+  border-collapse: collapse;
+  border-top: 1px solid #ccc;
+  border-left: 1px solid #ccc;
+}
+table.table-border th {
+  padding: 0.5ex 0.25em;
+  color: black;
+  background-color: #f7f7ea;
+  border-right: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+}
+table.table-border td {
+  padding: 0.5ex 0.25em;
+  border-right: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+}
+
+span.gui-object, span.gui-object-action {
+  font-weight: bold;
+}
+
+span.gui-object-title { }
+
+p.horizontal-rule {
+  width: 100%;
+  border: solid #cc9;
+  border-width: 0px 0px 1px 0px;
+  margin-bottom: 4ex;
+}
+
+div.zz-skip-header {
+  display: none;
+}
+
+td.zz-nav-header-cell {
+  text-align: left;
+  font-size: 95%;
+  width: 99%;
+  color: black;
+  background: inherit;
+  font-weight: normal;
+  vertical-align: top;
+  margin-top: 0ex;
+  padding-top: 0ex;
+}
+
+a.zz-nav-header-link {
+  font-size: 95%;
+}
+
+td.zz-nav-button-cell {
+  white-space: nowrap;
+  text-align: center;
+  width: 1%;
+  vertical-align: top;
+  padding-left: 4px;
+  padding-right: 4px;
+  margin-top: 0ex;
+  padding-top: 0ex;
+}
+
+a.zz-nav-button-link {
+  font-size: 90%;
+}
+
+div.zz-nav-footer-menu {
+  width: 100%;
+  text-align: center;
+  margin-top: 2ex;
+  margin-bottom: 4ex;
+}
+
+p.zz-legal-notice, a.zz-legal-notice-link {
+  font-size: 85%;
+  /* display: none; */ /* Uncomment to hide legal notice */
+}
+
+/*************************************/
+/*  Begin DARB Formats               */
+/*************************************/
+
+.bold, .codeinlinebold, .syntaxinlinebold, .term, .glossterm, .seghead,
+.glossaryterm, .keyword, .msg, .msgexplankw, .msgactionkw, .notep1,
+.xreftitlebold {
+  font-weight: bold;
+}
+
+.italic, .codeinlineitalic, .syntaxinlineitalic, .variable,
+.xreftitleitalic {
+  font-style: italic;
+}
+
+.bolditalic, .codeinlineboldital, .syntaxinlineboldital,
+.titleinfigure, .titleinexample, .titleintable, .titleinequation,
+.xreftitleboldital {
+  font-weight: bold;
+  font-style: italic;
+}
+
+.itemizedlisttitle, .orderedlisttitle, .segmentedlisttitle,
+.variablelisttitle {
+  font-weight: bold;
+}
+
+.bridgehead {
+  font-weight: bold;
+}
+
+.titleinrefsubsect {
+  color:#000000;
+  font-family: Geneva, Arial, Helvetica, sans-serif;
+  font-size:14px;
+  font-weight: bold;
+}
+
+.subhead1 {
+  display: block;
+  font-size: 110%;
+  font-weight: bold;
+}
+
+.subhead2 {
+	display: block;
+	font-size: 100%;
+	font-weight: bold;
+	color: #666;
+}
+
+.subhead3 {
+  display: block;
+  font-size: 95%;
+  font-weight: bold;
+}
+
+.underline {
+  text-decoration: underline;
+}
+
+.superscript {
+  vertical-align: super;
+}
+
+.subscript {
+  vertical-align: sub;
+}
+
+.listofeft {
+  border: none;
+}
+
+.betadraft, .alphabetanotice, .revenuerecognitionnotice {
+  color: #f00;
+  font-weight: bold; /*Added bolding for JavaFX sidebar modification */
+  background: inherit;
+}
+
+.betadraftsubtitle {
+  text-align: center;
+  font-weight: bold;
+  color: #f00;
+  background: inherit;
+}
+
+.comment {
+  color: #080;
+  background: inherit;
+  font-weight: bold;
+}
+
+.copyrightlogo {
+  text-align: center;
+  font-size: 85%;
+}
+
+.tocsubheader {
+  list-style-type: none;
+}
+
+table.icons td {
+  padding-left: 6px;
+  padding-right: 6px;
+}
+
+.l1ix dd, dd dl.l2ix, dd dl.l3ix {
+  margin-top: 0ex;
+  margin-bottom: 0ex;
+}
+
+div.infoboxnote, div.infoboxnotewarn, div.infoboxnotealso {
+  margin-top: 4ex;
+  margin-right: 10%;
+  margin-left: 10%;
+  margin-bottom: 4ex;
+  padding: 0.25em;
+  border-top: 1pt solid gray;
+  border-bottom: 1pt solid gray;
+}
+
+p.notep1 {
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.tahiti-highlight-example {
+  background: #ff9;
+  text-decoration: inherit;
+}
+.tahiti-highlight-search {
+  background: #9cf;
+  text-decoration: inherit;
+}
+.tahiti-sidebar-heading {
+  font-size: 110%;
+  margin-bottom: 0px;
+  padding-bottom: 0px;
+}
+
+/*************************************/
+/*  End DARB Formats                 */
+/*************************************/
+
+@media all {
+  dd {
+    margin-bottom: 2ex;
+  }
+  dl:first-child {
+    margin-top: 2ex;
+  }
+}
+
+@media print {
+  body {
+    font-size: 11pt;
+    padding: 0px !important;
+  }
+
+  a:link, a:visited {
+    color: black;
+    background: inherit;
+  }
+
+  code, pre, samp, tt {
+    font-size: 10pt;
+  }
+
+  #nav, #search_this_book, #comment_form,
+  #comment_announcement, #flipNav, .noprint {
+    display: none !important;
+  }
+
+/*  body#left-nav-present {
+    overflow: visible !important;
+  } */
+}

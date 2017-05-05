@@ -1,0 +1,167 @@
+@charset "utf-8";
+body  {
+	background: #ffffff;
+	margin: 0; /* it's good practice to zero the margin and padding of the body element to account for differing browser defaults */
+	padding: 0;
+	text-align: center; /* this centers the container in IE 5* browsers. The text is then set to the left aligned default in the #container selector */
+	
+	background-image:url(../images/javafx-pageback.jpg);
+	background-repeat:no-repeat;	
+	background-position:center top;
+}
+.javafx #container #mainContent #ind li .example {
+	margin-top: 1.2em;
+	margin-bottom: 1.2em;
+}
+.javafx #container #mainContent #ind li .figure {
+	margin-top: 1.2em;
+	margin-bottom: 1.2em;
+}
+.javafx #container #mainContent #ind li .figure .titleinfigure {
+	margin-bottom: 1.1em;
+}
+#ind {
+	padding-right: 12px;
+}
+.javafx #container { 
+	width: 926px;  /* using 20px less than a full 800px width allows for browser chrome and avoids a horizontal scroll bar */
+	background: #FFFFFF;
+	margin: 0 auto; /* the auto margins (in conjunction with a width) center the page */
+	text-align: left; /* this overrides the text-align: center on the body element. */
+} 
+
+/*//////////////////////////////////////////////////////*/
+/*/Header/*/
+
+.javafx #header { 
+	background: #ffffff;
+	background-image:url(../images/fx_header.jpg);
+	height: 64px;
+	/*padding: 38px 6px 0px 20px;   TOP RIGHT BOTTOM LEFT this padding matches the left alignment of the elements in the divs that appear beneath it. If an image is used in the #header instead of text, you may want to remove the padding. */
+}
+.javafx #headerfxtrail{
+	position:relative;
+	top:38px;
+	left:9px;
+	height:20px;
+	width:700px;
+}
+
+
+/*//////////////////////////////////////////////////////*/
+/*/Main Content/*/
+
+.javafx #mainContent {
+	margin: 0px 290px 0px 0px; /* the right margin on this div element creates the column down the right side of the page - no matter how much content the sidebar1 div contains, the column space will remain. You can remove this margin if you want the #mainContent div's text to fill the #sidebar1 space when the content in #sidebar1 ends. */
+	padding: 10px; /* remember that padding is the space inside the div box and margin is the space outside the div box */
+	width:615px;/*should be 615 but ie6 doesn't work;*/
+	border-right-style:solid;
+	border-right-color:#A8A8A8;
+	border-right-width:1px;
+	background-image:url(../images/fx_boxback.jpg);
+	background-repeat:no-repeat;
+	z-index:0;
+} 
+
+/*//////////////////////////////////////////////////////*/
+/*/ Side Bar/*/
+
+.javafx #sidebar {
+	float: right; /* since this element is floated, a width must be given */
+	width: 290px; /* the actual width of this div, in standards-compliant browsers, or standards mode in Internet Explorer will include the padding and border in addition to the width */
+	/*background: #EBEBEB; the background color will be displayed for the length of the content in the column, but no further */
+	border-left-style:solid; 
+	border-left-color:#A8A8A8;/*#C7C7C7*/
+	border-left-width:1px;	
+	z-index:100;
+}
+
+
+#sidebar_version_box {
+	float: right; /* since this element is floated, a width must be given */
+	width: 270px; /* the actual width of this div, in standards-compliant browsers, or standards mode in Internet Explorer will include the padding and border in addition to the width */
+	background-image:url(../images/fx_boxback_logo.jpg);
+	background-repeat:no-repeat;
+	min-height:80px;
+	padding:60px 10px 10px;/* top, right left, bottom */
+}
+
+
+#sidebar_toc_box, #sidebar_demoapp_box, #sidebar_profile_box, #sidebar_feedback_box {
+	float: right; /* since this element is floated, a width must be given */
+	width: 270px; /* the actual width of this div, in standards-compliant browsers, or standards mode in Internet Explorer will include the padding and border in addition to the width */
+	/*background: #EBEBEB; the background color will be displayed for the length of the content in the column, but no further */
+	border-top-style:solid; 
+	border-top-color:#C7C7C7;
+	border-top-width:1px;
+	background-image:url(../images/fx_boxback.jpg);
+	background-repeat:no-repeat;
+	padding:10px;
+}
+
+/* @group profile */
+.profile { /*width: 320px; background: #f5f5f5; */
+	line-height:normal;
+	margin-bottom: 12px;
+	padding-bottom: 12px;
+/*	float: left;         */
+	width: 99%
+}
+.profile img {
+	width: 68px;
+	float: left;
+	padding-right: 6px;
+	padding-bottom: 3px;
+}
+.profile p, #sidebar_feedback_box p {
+	font-size: 11px;
+	text-align: left;
+	padding-bottom: 6px;
+	margin-bottom: 6px;
+}
+/* @end */
+
+
+/*//////////////////////////////////////////////////////*/
+/*/Footer/*/
+
+.javafx #footer {
+/*	border-top-style:solid; 
+	border-top-color:#C7C7C7;
+	border-top-width:1px;*/
+	text-align:center;
+} 
+.javafx #footer p {
+	margin: 0; /* zeroing the margins of the first element in the footer will avoid the possibility of margin collapse - a space between divs */
+	padding: 10px 0; /* padding on this element will create space, just as the the margin would have, without the margin collapse issue */
+}
+
+
+.javafx #fx_blur {
+	height:50px;
+	width:100%;
+	background-image:url(../images/fx_blur.jpg);
+	background-repeat:no-repeat;
+	text-align:center;
+	border-top-style:solid; 
+	border-top-color:#a6a6a6;
+	border-top-width:1px;
+}
+
+/*//////////////////////////////////////////////////////*/
+/*/Misc/*/
+
+.fltrt { /* this class can be used to float an element right in your page. The floated element must precede the element it should be next to on the page. */
+	float: right;
+	margin-left: 8px;
+}
+.fltlft { /* this class can be used to float an element left in your page */
+	float: left;
+	margin-right: 8px;
+}
+.clearfloat { /* this class should be placed on a div or break element and should be the final element before the close of a container that should fully contain a float */
+	clear:both;
+    height:0;
+    font-size: 1px;
+    line-height: 0px;
+}
